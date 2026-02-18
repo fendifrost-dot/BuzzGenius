@@ -24,19 +24,19 @@
     --muted: 220 5% 94%;
     --muted-foreground: 220 5% 42%;
 
-    --accent: 42 72% 50%;
+    --accent: 38 42% 42%;
     --accent-foreground: 0 0% 8%;
 
-    --gold: 42 72% 50%;
-    --gold-light: 42 60% 65%;
-    --gold-muted: 42 30% 35%;
+    --gold: 38 42% 42%;
+    --gold-light: 38 32% 56%;
+    --gold-muted: 38 20% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 220 5% 86%;
     --input: 220 5% 86%;
-    --ring: 42 72% 50%;
+    --ring: 38 42% 42%;
 
     --radius: 0.25rem;
 
@@ -66,16 +66,16 @@
     --secondary-foreground: 40 6% 90%;
     --muted: 220 6% 14%;
     --muted-foreground: 220 5% 55%;
-    --accent: 42 72% 50%;
+    --accent: 38 42% 42%;
     --accent-foreground: 0 0% 8%;
     --border: 220 6% 18%;
     --input: 220 6% 18%;
-    --ring: 42 72% 50%;
+    --ring: 38 42% 42%;
     --chrome: 220 5% 40%;
     --chrome-light: 220 5% 50%;
-    --gold: 42 72% 50%;
-    --gold-light: 42 60% 65%;
-    --gold-muted: 42 30% 35%;
+    --gold: 38 42% 42%;
+    --gold-light: 38 32% 56%;
+    --gold-muted: 38 20% 30%;
   }
 }
 
@@ -87,11 +87,12 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    font-weight: 300;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight font-bold text-foreground;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 }
 
