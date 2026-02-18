@@ -7,14 +7,14 @@ const Hero = () => {
 
   return (
     <section className="bg-matte-dark text-primary-foreground">
-      <div className="container mx-auto px-6 py-32 md:py-44 max-w-4xl">
+      <div className="container mx-auto px-6 py-24 md:py-36 max-w-4xl">
         <div className="flex items-center gap-6 mb-12">
           <img src={logo} alt="Buzz Genius Inc." className="w-16 h-16 md:w-20 md:h-20 object-contain" />
           <div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-foreground mb-1">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-primary-foreground mb-3 md:mb-4">
               Buzz Genius Inc.
             </h1>
-            <p className="text-gold-light text-xs md:text-sm font-light uppercase tracking-[0.25em]">
+            <p className="text-gold-light text-xs md:text-sm font-light uppercase tracking-[0.18em] leading-tight">
               Technical Strategy &amp; Operational Development
             </p>
           </div>
