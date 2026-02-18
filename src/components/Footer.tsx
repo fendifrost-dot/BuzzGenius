@@ -1,7 +1,7 @@
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground">
+  <footer className="bg-matte-dark text-primary-foreground border-t border-gold/20">
     <div className="container mx-auto px-6 py-10 max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3">
         <img src={logo} alt="Buzz Genius Inc." className="w-8 h-8 object-contain" />
