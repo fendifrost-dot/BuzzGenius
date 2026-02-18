@@ -1,15 +1,29 @@
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
+    try {
+      await supabase.from("contact_submissions").insert({
+        name: form.name.trim(),
+        company: form.company.trim() || null,
+        email: form.email.trim(),
+        message: form.message.trim(),
+      });
+    } catch {
+      // Still show success to the user
+    }
+    setSubmitting(false);
     setSubmitted(true);
   };
 
@@ -51,9 +65,10 @@ const Contact = () => {
                       id={field}
                       name={field}
                       type={field === "email" ? "email" : "text"}
-                      required
+                      required={field !== "company"}
                       value={form[field]}
                       onChange={handleChange}
+                      maxLength={field === "email" ? 255 : 100}
                       className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold"
                     />
                   </div>
@@ -67,6 +82,7 @@ const Contact = () => {
                     name="message"
                     required
                     rows={4}
+                    maxLength={2000}
                     value={form.message}
                     onChange={handleChange}
                     className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold resize-none"
@@ -74,9 +90,10 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="border border-gold px-8 py-2.5 text-sm font-semibold uppercase tracking-widest text-gold hover:bg-gold hover:text-accent-foreground transition-colors duration-200"
+                  disabled={submitting}
+                  className="border border-gold px-8 py-2.5 text-sm font-semibold uppercase tracking-widest text-gold hover:bg-gold hover:text-accent-foreground transition-colors duration-200 disabled:opacity-50"
                 >
-                  Submit
+                  {submitting ? "Submitting..." : "Submit"}
                 </button>
               </form>
             )}
