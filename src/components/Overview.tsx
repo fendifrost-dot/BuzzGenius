@@ -1,9 +1,9 @@
 const Overview = () => (
   <section className="bg-background">
-    <div className="container mx-auto px-6 py-20 md:py-28 max-w-4xl">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8">Overview</h2>
-      <div className="w-10 h-0.5 bg-gold mb-8" />
-      <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl">
+    <div className="container mx-auto px-6 py-24 md:py-36 max-w-4xl">
+      <h2 className="text-3xl md:text-4xl font-bold mb-10">Overview</h2>
+      <div className="w-10 h-0.5 bg-gold mb-10" />
+      <p className="text-muted-foreground text-base md:text-lg leading-[1.8] max-w-3xl font-light">
         We support established organizations in executing structured improvements across technical, operational, and growth-critical systems. Our approach integrates field-tested expertise with disciplined implementation to deliver measurable performance outcomes.
       </p>
     </div>
