@@ -1,5 +1,5 @@
 const Leadership = () => (
-  <section className="bg-card">
+  <section id="leadership" className="bg-card">
     <div className="container mx-auto px-6 py-24 md:py-36 max-w-4xl">
       <h2 className="text-3xl md:text-4xl font-bold mb-10">Leadership</h2>
       <div className="w-10 h-0.5 bg-gold mb-14" />
@@ -38,6 +38,17 @@ const Leadership = () => (
           <p>
             At Buzz Genius, Jamal leads strategic engagement, system architecture, and enterprise-level growth initiatives.
           </p>
+          <div className="pt-6 mt-6 border-t border-border/60">
+            <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-3">
+              Sector Experience
+            </p>
+            <p className="text-foreground text-sm md:text-base font-light leading-relaxed">
+              Technical services, industrial operations, professional services,
+              consumer brands, media &amp; entertainment, automotive, and
+              construction-adjacent operations.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>

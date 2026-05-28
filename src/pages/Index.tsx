@@ -1,3 +1,4 @@
+import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Overview from "@/components/Overview";
 import CoreServices from "@/components/CoreServices";
@@ -8,16 +9,19 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <main>
-    <Hero />
-    <Overview />
-    <CoreServices />
-    <Philosophy />
-    <Leadership />
-    <Engagement />
-    <Contact />
+  <>
+    <Nav />
+    <main>
+      <Hero />
+      <Overview />
+      <CoreServices />
+      <Philosophy />
+      <Leadership />
+      <Engagement />
+      <Contact />
+    </main>
     <Footer />
-  </main>
+  </>
 );
 
 export default Index;
