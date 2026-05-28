@@ -23,8 +23,15 @@ const Nav = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Nav background:
+  //  - on home + at top: transparent (Hero owns the visual)
+  //  - on home + scrolled: opaque primary
+  //  - on any other route: always opaque
+  const opaque = !onHome || scrolled;
+  const showBrand = opaque; // hide brand block while Hero owns it
+
   const goAnchor = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!onHome) return; // let the router handle it
+    if (!onHome) return; // browser handles /#anchor as a hard nav back to home
     e.preventDefault();
     setOpen(false);
     const id = href.replace("#", "");
@@ -34,12 +41,22 @@ const Nav = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        scrolled ? "bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/85 border-b border-gold/20" : "bg-transparent"
+        opaque
+          ? "bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/85 border-b border-gold/20"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className={`flex items-center gap-3 transition-opacity duration-300 ${
+              showBrand ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+            aria-hidden={!showBrand}
+            tabIndex={showBrand ? 0 : -1}
+          >
             <img src={logo} alt="Buzz Genius Inc." className="w-8 h-8 object-contain" />
             <span className="text-sm font-semibold tracking-wide text-primary-foreground">
               Buzz Genius Inc.
@@ -93,7 +110,7 @@ const Nav = () => {
         </div>
 
         {open && (
-          <ul className="md:hidden pb-4 space-y-3">
+          <ul className="md:hidden pb-4 space-y-3 bg-primary/95 backdrop-blur">
             {links.map((l) => (
               <li key={l.href}>
                 <a

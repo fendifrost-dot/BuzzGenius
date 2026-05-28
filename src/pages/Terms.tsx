@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 
 const Terms = () => (
@@ -76,9 +77,9 @@ const Terms = () => (
               treated as confidential and is disclosed only as required to perform
               services, with your written authorization, or as required by law.
               Refer to our{" "}
-              <a href="/privacy" className="text-foreground hover:text-gold">
+              <Link to="/privacy" className="text-foreground hover:text-gold">
                 Privacy Policy
-              </a>{" "}
+              </Link>{" "}
               for additional detail.
             </p>
           </section>
