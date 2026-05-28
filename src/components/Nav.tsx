@@ -34,7 +34,7 @@ const Nav = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        scrolled ? "bg-matte-dark/95 backdrop-blur border-b border-gold/20" : "bg-transparent"
+        scrolled ? "bg-primary/95 backdrop-blur supports-[backdrop-filter]:bg-primary/85 border-b border-gold/20" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 max-w-6xl">
