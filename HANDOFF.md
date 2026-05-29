@@ -6,6 +6,30 @@
 
 ---
 
+## Git workflow (read this first)
+
+**Do not run `git init` on this project.** That creates a broken/partial repo and forces a re-push that can drop concurrent work.
+
+If the folder already exists locally:
+
+```bash
+cd /Users/gocrazyglobal/BuzzGenius
+git pull origin main
+```
+
+Only use `git init` for a **brand-new** directory with no `.git` history.
+
+**Commit ownership (as of May 2026):**
+
+| Commit | Author | Scope |
+|--------|--------|--------|
+| `3fb0b76` | Cursor | Services page, Stripe backend, `server/`, `api/`, pricing data |
+| `b45884c`+ | Claude | Lender-readiness restore: `Privacy.tsx`, `Terms.tsx`, `sitemap.xml`, `index.html`, `Footer.tsx`, `Contact.tsx`, `App.tsx`, `robots.txt` — does **not** conflict with Services/Stripe paths |
+
+After any `git pull`, run `npm install` if `package.json` changed, then `npm run dev`.
+
+---
+
 ## Executive summary
 
 Buzz Genius is a **lender-friendly marketing/growth services website** built on the existing **Vite + React + TypeScript + Tailwind + shadcn/ui** stack (not Next.js). A full **Services page** was implemented per product spec, plus a **Stripe backend** for Checkout, invoicing, webhooks, and billing portal.
