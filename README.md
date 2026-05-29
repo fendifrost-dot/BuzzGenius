@@ -1,73 +1,69 @@
-# Welcome to your Lovable project
+# Buzz Genius
 
-## Project info
+Growth infrastructure website for Buzz Genius — marketing, media production, AI automation, and enterprise-ready service packages.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack
 
-## How can I edit this code?
+- Vite + React + TypeScript
+- Tailwind CSS + shadcn/ui
+- Framer Motion
+- **Stripe Checkout** (server-side API)
+- Supabase (contact form)
+- Vercel (frontend + serverless API)
 
-There are several ways of editing your application.
+## Development
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
+cp .env.example .env
+# Add STRIPE_SECRET_KEY and STRIPE_PRICE_* values
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+This runs:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Frontend** at `http://localhost:8080` (Vite)
+- **API** at `http://localhost:3001` (Express), proxied via `/api/*`
 
-**Use GitHub Codespaces**
+- Home: `/`
+- Services: `/services`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Stripe backend
 
-## What technologies are used for this project?
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/api/create-checkout-session` | POST | Start Checkout (subscription or one-time) |
+| `/api/checkout-session` | GET | Verify session after payment |
+| `/api/create-portal-session` | POST | Customer billing portal |
+| `/api/create-invoice` | POST | Send Stripe invoice by email |
+| `/api/stripe-webhook` | POST | Webhook events |
 
-This project is built with:
+### Setup
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Create [Stripe Products & Prices](https://dashboard.stripe.com/products) for each plan.
+2. Add Price IDs to `.env` as `STRIPE_PRICE_*` (see `.env.example`).
+3. Set `STRIPE_SECRET_KEY` and `SITE_URL`.
+4. For webhooks locally: `stripe listen --forward-to localhost:3001/api/stripe-webhook`
+5. Copy the webhook signing secret to `STRIPE_WEBHOOK_SECRET`.
 
-## How can I deploy this project?
+### Deploy (Vercel)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Add the same env vars in the Vercel project settings (no `VITE_` prefix for secrets).
 
-## Can I connect a custom domain to my Lovable project?
+Configure Stripe webhook endpoint: `https://your-domain.com/api/stripe-webhook`
 
-Yes, you can!
+Events to enable: `checkout.session.completed`, `invoice.paid`, `customer.subscription.*`
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Enable **Stripe Customer Portal** in Dashboard → Settings → Billing → Customer portal.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Project structure
+
+```
+api/                 # Vercel serverless routes
+server/
+  handlers/          # Shared Stripe logic
+  dev.ts             # Local Express API
+src/
+  lib/stripe-api.ts  # Frontend API client
+  components/stripe/
+```

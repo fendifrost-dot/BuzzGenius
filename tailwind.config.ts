@@ -59,6 +59,12 @@ export default {
           light: "hsl(var(--gold-light))",
           muted: "hsl(var(--gold-muted))",
         },
+        brand: {
+          blue: "hsl(var(--brand-blue))",
+          violet: "hsl(var(--brand-violet))",
+          silver: "hsl(var(--brand-silver))",
+          charcoal: "hsl(var(--brand-charcoal))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

@@ -2,19 +2,11 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -26,12 +18,7 @@ const Contact = () => {
         name: form.name.trim(),
         company: form.company.trim() || null,
         email: form.email.trim(),
-        message: [
-          form.phone.trim() ? `Phone: ${form.phone.trim()}` : null,
-          form.message.trim(),
-        ]
-          .filter(Boolean)
-          .join("\n\n"),
+        message: form.message.trim(),
       });
     } catch {
       // Still show success to the user
@@ -48,91 +35,46 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <div className="space-y-6 text-foreground">
+            <div className="space-y-4 text-foreground">
               <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-                  Corporate Office
-                </p>
-                <address className="not-italic text-base font-medium leading-relaxed">
-                  Buzz Genius Inc.
-                  <br />
-                  444 W. Lake St.
-                  <br />
-                  Chicago, IL 60606
-                </address>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-                  Email
-                </p>
-                <a
-                  href="mailto:info@buzzgeniusinc.com"
-                  className="text-base font-medium hover:text-gold transition-colors"
-                >
-                  info@buzzgeniusinc.com
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Email</p>
+                <a href="mailto:Info@buzzgeniusinc.com" className="text-base font-medium hover:text-brand-blue transition-colors">
+                  Info@buzzgeniusinc.com
                 </a>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-                  Phone
-                </p>
-                <a
-                  href="tel:+17083209838"
-                  className="text-base font-medium hover:text-gold transition-colors"
-                >
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Phone</p>
+                <a href="tel:+17083209838" className="text-base font-medium hover:text-brand-blue transition-colors">
                   (708) 320-9838
                 </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-                  Response Time
-                </p>
-                <p className="text-base font-medium leading-relaxed">
-                  One business day, Monday&ndash;Friday.
-                </p>
               </div>
             </div>
           </div>
 
           <div>
             {submitted ? (
-              <p className="text-foreground font-medium">
-                Thank you. A member of our team will respond within one business day.
-              </p>
+              <p className="text-foreground font-medium">Thank you. We will be in touch.</p>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                {(
-                  [
-                    { name: "name", label: "Name", required: true, type: "text" },
-                    { name: "company", label: "Company", required: false, type: "text" },
-                    { name: "email", label: "Email", required: true, type: "email" },
-                    { name: "phone", label: "Phone", required: false, type: "tel" },
-                  ] as const
-                ).map((field) => (
-                  <div key={field.name}>
-                    <label
-                      htmlFor={field.name}
-                      className="block text-xs uppercase tracking-widest text-muted-foreground mb-2"
-                    >
-                      {field.label}
+                {(["name", "company", "email"] as const).map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field} className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                      {field}
                     </label>
                     <input
-                      id={field.name}
-                      name={field.name}
-                      type={field.type}
-                      required={field.required}
-                      value={form[field.name]}
+                      id={field}
+                      name={field}
+                      type={field === "email" ? "email" : "text"}
+                      required={field !== "company"}
+                      value={form[field]}
                       onChange={handleChange}
-                      maxLength={field.name === "email" ? 255 : 100}
-                      className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold"
+                      maxLength={field === "email" ? 255 : 100}
+                      className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-brand-blue"
                     />
                   </div>
                 ))}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-xs uppercase tracking-widest text-muted-foreground mb-2"
-                  >
+                  <label htmlFor="message" className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">
                     Message
                   </label>
                   <textarea
@@ -143,13 +85,13 @@ const Contact = () => {
                     maxLength={2000}
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold resize-none"
+                    className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-brand-blue resize-none"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="border border-gold px-8 py-2.5 text-sm font-semibold uppercase tracking-widest text-gold hover:bg-gold hover:text-accent-foreground transition-colors duration-200 disabled:opacity-50"
+                  className="border border-brand-blue px-8 py-2.5 text-sm font-semibold uppercase tracking-widest text-brand-blue hover:bg-brand-blue hover:text-white transition-colors duration-200 disabled:opacity-50"
                 >
                   {submitting ? "Submitting..." : "Submit"}
                 </button>
