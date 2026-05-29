@@ -1,27 +1,32 @@
 export const faqItems = [
   {
-    question: "Do you offer monthly plans?",
+    question: "What kind of clients does Buzz Genius work with?",
     answer:
-      "Yes. Most services can be structured as recurring monthly retainers, with flexible tiers from $750 to $10,000+ depending on scope and support level.",
+      "Entrepreneurs, small businesses, and independent professionals seeking practical advisory services. Engagements are sized for owners and operators who need structured guidance without retaining a large consulting firm.",
   },
   {
-    question: "Do you offer custom enterprise solutions?",
+    question: "How are engagements structured?",
     answer:
-      "Yes. Enterprise clients receive custom roadmaps, dedicated account management, and tailored service bundles aligned with operational goals.",
+      "Most engagements are delivered as structured advisory sessions, multi-session packages, or short-term project consulting. Long-term recurring contracts are not typical.",
   },
   {
-    question: "Do you work nationwide?",
+    question: "How long does a typical engagement take?",
     answer:
-      "Yes. Buzz Genius serves clients across the United States with remote delivery, on-site production when required, and nationwide campaign management.",
+      "The Initial Business Strategy Session is a focused single engagement. The $3,000, $5,000, and $6,000 packages run across multiple sessions, sized to scope.",
   },
   {
-    question: "What payment methods are accepted?",
+    question: "How and when is payment collected?",
     answer:
-      "We accept all major credit cards, ACH, Stripe invoicing, and subscription billing for recurring service agreements.",
+      "Engagements are paid before work begins, typically through electronic transfer, check, or digital payment platforms. Payment confirms scheduling and engagement scope.",
   },
   {
-    question: "Do you require contracts?",
+    question: "What deliverables do you provide?",
     answer:
-      "Some services require minimum engagement periods to ensure quality delivery and predictable fulfillment. Terms are outlined clearly before onboarding.",
+      "Each engagement produces a written engagement summary documenting recommendations, decisions, and next steps. Specific deliverables are scoped at the start of each engagement.",
+  },
+  {
+    question: "Do you sign confidentiality agreements?",
+    answer:
+      "Yes. Information shared during an advisory engagement is treated as confidential. Mutual NDAs can be executed on request prior to substantive discussion.",
   },
 ];

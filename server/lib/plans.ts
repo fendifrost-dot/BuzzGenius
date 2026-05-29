@@ -6,43 +6,20 @@ export type PlanConfig = {
 
 const env = (key: string) => process.env[key]?.trim() || "";
 
-/** Server-side plan → Stripe Price ID mapping (never expose secret keys to the client). */
+/** Server-side plan → Stripe Price ID mapping. */
 export const getPlanCatalog = (): Record<string, PlanConfig> => {
   const catalog: Record<string, PlanConfig | null> = {
-    "social-starter": env("STRIPE_PRICE_SOCIAL_STARTER")
-      ? {
-          priceId: env("STRIPE_PRICE_SOCIAL_STARTER"),
-          mode: "subscription",
-          name: "Social Starter Retainer",
-        }
+    "strategy-session": env("STRIPE_PRICE_STRATEGY_SESSION")
+      ? { priceId: env("STRIPE_PRICE_STRATEGY_SESSION"), mode: "payment", name: "Initial Business Strategy Session" }
       : null,
-    growth: env("STRIPE_PRICE_GROWTH")
-      ? {
-          priceId: env("STRIPE_PRICE_GROWTH"),
-          mode: "subscription",
-          name: "Growth Partnership Retainer",
-        }
+    "growth-ops": env("STRIPE_PRICE_GROWTH_OPS")
+      ? { priceId: env("STRIPE_PRICE_GROWTH_OPS"), mode: "payment", name: "Growth & Operations Consulting Package" }
       : null,
-    "brand-kit": env("STRIPE_PRICE_BRAND")
-      ? {
-          priceId: env("STRIPE_PRICE_BRAND"),
-          mode: "payment",
-          name: "Brand Identity Package",
-        }
+    "business-dev": env("STRIPE_PRICE_BUSINESS_DEV")
+      ? { priceId: env("STRIPE_PRICE_BUSINESS_DEV"), mode: "payment", name: "Business Development Strategy Package" }
       : null,
-    website: env("STRIPE_PRICE_WEBSITE")
-      ? {
-          priceId: env("STRIPE_PRICE_WEBSITE"),
-          mode: "payment",
-          name: "Website Build Package",
-        }
-      : null,
-    automation: env("STRIPE_PRICE_AUTOMATION")
-      ? {
-          priceId: env("STRIPE_PRICE_AUTOMATION"),
-          mode: "payment",
-          name: "AI Automation Package",
-        }
+    "advanced-advisory": env("STRIPE_PRICE_ADVANCED_ADVISORY")
+      ? { priceId: env("STRIPE_PRICE_ADVANCED_ADVISORY"), mode: "payment", name: "Advanced Advisory & Implementation Package" }
       : null,
   };
 

@@ -35,8 +35,8 @@ const Services = () => {
   return (
     <>
       <Seo
-        title="Buzz Genius — Marketing, AI Automation & Growth Services"
-        description="Lender-friendly growth infrastructure: branding, websites, AI automation, social media, content production, paid ads, and consulting. Transparent pricing and monthly retainers."
+        title="Buzz Genius Inc. — Business Consulting & Strategic Advisory"
+        description="Buzz Genius Inc. is an Illinois corporation providing business consulting and strategic advisory to entrepreneurs and small businesses. Four standardized engagement packages from $1,000 to $6,000."
       />
       <StructuredData />
       <SiteLayout>

@@ -14,7 +14,7 @@ const Footer = () => (
             </div>
           </div>
           <p className="text-xs text-chrome-light leading-relaxed font-light">
-            Marketing, AI automation, branding, web, and content systems for growth-stage organizations.
+            Business consulting and strategic advisory for entrepreneurs, small businesses, and independent professionals.
           </p>
         </div>
         <div>

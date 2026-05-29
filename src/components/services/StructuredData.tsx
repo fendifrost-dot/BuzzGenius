@@ -4,21 +4,19 @@ const StructuredData = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Buzz Genius",
+    name: "Buzz Genius Inc.",
+    legalName: "Buzz Genius Inc.",
     description:
-      "Integrated marketing, media production, AI automation, branding, and growth systems for businesses and organizations.",
-    url: typeof window !== "undefined" ? window.location.origin : "https://buzzgeniusinc.com",
+      "Illinois professional services corporation providing business consulting and strategic advisory to entrepreneurs, small businesses, and independent professionals.",
+    url: "https://buzzgeniusinc.com",
     areaServed: "United States",
     serviceType: serviceCategories.map((s) => s.name),
     priceRange: "$$",
-    paymentAccepted: "Credit Card, ACH, Stripe",
+    paymentAccepted: "Stripe, ACH, Electronic Transfer, Check",
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   );
 };
 
