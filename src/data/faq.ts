@@ -1,32 +1,16 @@
 export const faqItems = [
-  {
-    question: "What kind of clients does Buzz Genius work with?",
-    answer:
-      "Entrepreneurs, small businesses, and independent professionals seeking practical advisory services. Engagements are sized for owners and operators who need structured guidance without retaining a large consulting firm.",
-  },
-  {
-    question: "How are engagements structured?",
-    answer:
-      "Most engagements are delivered as structured advisory sessions, multi-session packages, or short-term project consulting. Long-term recurring contracts are not typical.",
-  },
-  {
-    question: "How long does a typical engagement take?",
-    answer:
-      "The Initial Business Strategy Session is a focused single engagement. The $3,000, $5,000, and $6,000 packages run across multiple sessions, sized to scope.",
-  },
-  {
-    question: "How and when is payment collected?",
-    answer:
-      "Engagements are paid before work begins, typically through electronic transfer, check, or digital payment platforms. Payment confirms scheduling and engagement scope.",
-  },
-  {
-    question: "What deliverables do you provide?",
-    answer:
-      "Each engagement produces a written engagement summary documenting recommendations, decisions, and next steps. Specific deliverables are scoped at the start of each engagement.",
-  },
-  {
-    question: "Do you sign confidentiality agreements?",
-    answer:
-      "Yes. Information shared during an advisory engagement is treated as confidential. Mutual NDAs can be executed on request prior to substantive discussion.",
-  },
+  { question: "What's the difference between the Consulting & Advisory packages and the Marketing & Growth Services?",
+    answer: "Consulting & Advisory packages ($1,000–$6,000) are structured strategy engagements aligned with our corporate Service Overview. Marketing & Growth Services are project and retainer-based execution work — branding, websites, AI automation, social media, content, and paid media. Most clients start with a strategy session and engage execution services as scope is defined." },
+  { question: "Do you offer monthly retainers?",
+    answer: "Yes, for execution services. Marketing retainers range from $750 to $10,000+/month depending on scope and support level. Consulting engagements are typically short-term per the Pricing Structure rather than long-term contracts." },
+  { question: "Do you offer custom enterprise solutions?",
+    answer: "Yes. Enterprise clients receive custom roadmaps, dedicated account management, and tailored service bundles." },
+  { question: "Do you work nationwide?",
+    answer: "Yes. Buzz Genius serves clients across the United States with remote delivery, on-site production when required, and nationwide campaign management." },
+  { question: "What payment methods are accepted?",
+    answer: "Stripe (card and ACH), electronic transfer, and check. Engagements are paid in full or per the engagement agreement before work begins." },
+  { question: "Do you sign confidentiality agreements?",
+    answer: "Yes. Information shared during an engagement is treated as confidential. Mutual NDAs can be executed prior to substantive discussion." },
+  { question: "Do you require contracts?",
+    answer: "Each engagement is governed by a written engagement agreement defining scope, deliverables, and payment terms." },
 ];

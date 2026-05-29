@@ -1,16 +1,18 @@
 const services = [
-  "Business Strategy Development",
-  "Operational Consulting & Workflow Improvement",
-  "Marketing & Brand Positioning Strategy",
-  "Revenue Growth Planning",
-  "Startup Advisory & Launch Guidance",
-  "Business Structure & Operational Planning",
+  "Business Consulting & Strategic Advisory",
+  "Brand Development & Identity",
+  "Website Design & Development",
+  "AI Automation Systems",
+  "Social Media Management",
+  "Content Production",
+  "Paid Advertising Management",
+  "Graphic Design & Creative Services",
 ];
 
 const CoreServices = () => (
   <section id="services" className="bg-matte-dark text-primary-foreground">
     <div className="container mx-auto px-6 py-24 md:py-36 max-w-4xl">
-      <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-10">Typical Engagements</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-10">Service Lines</h2>
       <div className="w-10 h-0.5 bg-gold mb-14" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
         {services.map((service) => (
@@ -21,7 +23,7 @@ const CoreServices = () => (
         ))}
       </div>
       <p className="mt-10 text-xs text-chrome/60 font-light italic tracking-wide">
-        Engagements are structured as strategic sessions, advisory meetings, or short-term project consulting.
+        Consulting engagements are structured per the corporate Pricing Structure. Execution services are project or retainer-based.
       </p>
     </div>
   </section>

@@ -29,7 +29,7 @@ const StickyConsultationCTA = () => {
           exit={{ y: 80, opacity: 0 }}
           className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-3 rounded-full border border-border bg-background/95 px-4 py-2 shadow-lg backdrop-blur"
         >
-          <p className="hidden text-xs font-medium sm:block">Begin with a focused strategy session.</p>
+          <p className="hidden text-xs font-medium sm:block">Strategy session or growth project — start here.</p>
           <Button size="sm" onClick={scrollToContact}>
             Reserve a Session
           </Button>

@@ -4,10 +4,11 @@ const Engagement = () => (
       <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-10">Engagement Model</h2>
       <div className="w-10 h-0.5 bg-gold mb-10" />
       <p className="text-chrome-light text-base md:text-lg leading-[1.8] max-w-3xl font-light">
-        Consulting engagements are often short-term advisory engagements rather than long-term
-        contracts. Most engagements begin with a focused strategy session and proceed only when
-        scope is clearly defined. Payment is collected before work begins, and each engagement
-        produces a written summary documenting recommendations and next steps.
+        Most consulting engagements begin with a focused strategy session and proceed only when
+        scope is clearly defined. Execution work (marketing, web, AI, content) is scoped as
+        projects or monthly retainers under a written engagement agreement. Payment is collected
+        before work begins and each engagement produces written deliverables documenting
+        recommendations and next steps.
       </p>
     </div>
   </section>

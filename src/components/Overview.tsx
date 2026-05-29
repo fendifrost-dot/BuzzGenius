@@ -4,11 +4,10 @@ const Overview = () => (
       <h2 className="text-3xl md:text-4xl font-bold mb-10">Overview</h2>
       <div className="w-10 h-0.5 bg-gold mb-10" />
       <p className="text-muted-foreground text-base md:text-lg leading-[1.8] max-w-3xl font-light">
-        Buzz Genius, Inc. provides consulting services to entrepreneurs, small businesses, and
-        independent professionals seeking guidance on business development, operational
-        efficiency, marketing strategy, and revenue growth. The company works with early-stage
-        and growing businesses that require practical advisory services but may not have the
-        resources to retain large consulting firms.
+        Buzz Genius, Inc. is an Illinois professional services corporation. The company provides
+        business consulting and strategic advisory to entrepreneurs, small businesses, and
+        independent professionals, and operates a marketing and growth execution practice covering
+        branding, websites, AI automation, social media, content production, paid media, and design.
       </p>
     </div>
   </section>

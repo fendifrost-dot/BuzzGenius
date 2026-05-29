@@ -14,7 +14,7 @@ const Footer = () => (
             </div>
           </div>
           <p className="text-xs text-chrome-light leading-relaxed font-light">
-            Business consulting and strategic advisory for entrepreneurs, small businesses, and independent professionals.
+            Consulting Business consulting and strategic advisory for entrepreneurs, small businesses, and independent professionals. advisory plus marketing, AI automation, branding, web, and content execution — for entrepreneurs, small businesses, and growth-stage operators.
           </p>
         </div>
         <div>

@@ -4,6 +4,7 @@ import Contact from "@/components/Contact";
 import SiteLayout from "@/components/layout/SiteLayout";
 import BusinessOverview from "@/components/services/BusinessOverview";
 import CaseStudyCards from "@/components/services/CaseStudyCards";
+import ConsultingPackages from "@/components/services/ConsultingPackages";
 import FinalCTA from "@/components/services/FinalCTA";
 import IndustriesGrid from "@/components/services/IndustriesGrid";
 import PricingTables from "@/components/services/PricingTables";
@@ -21,33 +22,29 @@ const Services = () => {
       contact.scrollIntoView({ behavior: "smooth" });
       if (prefill) {
         const message = document.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
-        if (message && !message.value) {
-          message.value = prefill;
-        }
+        if (message && !message.value) message.value = prefill;
       }
     }
   }, []);
 
-  const handleServiceCta = (serviceId: string) => {
+  const handleServiceCta = (serviceId: string) =>
     scrollToContact(`I'm interested in learning more about your ${serviceId} services.`);
-  };
 
   return (
     <>
       <Seo
-        title="Buzz Genius Inc. — Business Consulting & Strategic Advisory"
-        description="Buzz Genius Inc. is an Illinois corporation providing business consulting and strategic advisory to entrepreneurs and small businesses. Four standardized engagement packages from $1,000 to $6,000."
+        title="Buzz Genius Inc. — Consulting & Marketing Services"
+        description="Buzz Genius Inc. is an Illinois corporation. Consulting & Strategic Advisory packages ($1,000–$6,000) plus marketing, AI automation, branding, web, social, and content execution services."
       />
       <StructuredData />
       <SiteLayout>
         <main>
           <ServicesHero />
           <BusinessOverview />
+          <ConsultingPackages onRequestProposal={() => scrollToContact("I'd like to discuss a consulting engagement.")} />
           <ServicesGrid onServiceCta={handleServiceCta} />
           <RecurringRevenue />
-          <PricingTables
-            onRequestProposal={() => scrollToContact("I'd like to request a custom proposal.")}
-          />
+          <PricingTables onRequestProposal={() => scrollToContact("I'd like to request a custom proposal.")} />
           <IndustriesGrid />
           <ProcessTimeline />
           <CaseStudyCards />
